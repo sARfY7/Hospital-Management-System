@@ -1,0 +1,38 @@
+.InsertPatients {
+  display: flex;
+  flex-direction: column;
+}
+
+.InsertPatients form {
+  padding: 20px;
+  justify-self: center;
+  align-self: center;
+  width: 60%;
+}
+
+.InsertPatients form div {
+  margin-bottom: 10px;
+}
+
+.InsertPatients label {
+  text-align: left;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.InsertPatients input {
+  width: 100%;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.InsertPatients button {
+  padding: 5px 10px;
+  border: 1px solid #000;
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+.InsertPatients button:hover {
+  cursor: pointer;
+}

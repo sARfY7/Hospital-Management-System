@@ -1,0 +1,57 @@
+.VPContainer {
+  padding: 20px;
+  box-shadow: 0 2px 5px #ccc;
+  display: grid;
+  grid-template-rows: 90% 10%;
+}
+
+.ViewPatients {
+  border: 1px solid #000;
+  width: 100%;
+}
+
+.ViewPatients th {
+  padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+}
+
+.ViewPatients tr:nth-of-type(even) {
+  background-color: #ccc;
+}
+
+.ViewPatients td {
+  padding: 5px 10px;
+  margin: 0;
+}
+
+.ViewPatients td i {
+  padding: 5px;
+}
+
+.ViewPatients td i:hover {
+  cursor: pointer;
+}
+
+.Pagination {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.Pagination ul {
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  margin: 0;
+}
+
+.Pagination li {
+  padding: 10px;
+  margin: auto 10px;
+  display: inline;
+}
+
+.Pagination li:hover {
+  cursor: pointer;
+}
