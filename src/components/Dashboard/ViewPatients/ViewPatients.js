@@ -22,6 +22,12 @@ class ViewPatients extends Component {
       });
   }
 
+  deletePatientHandler = pid => {
+    axios.delete("http://localhost:3001/patients/" + pid).then(response => {
+      console.log("Deleted: ", response);
+    });
+  };
+
   paginationHandler = page => {
     axios
       .get("http://localhost:3001/patients?_limit=10&_page=" + page)
@@ -41,11 +47,16 @@ class ViewPatients extends Component {
           srno={patient.id}
           pname={patient.name}
           pmob={patient.mobile}
+          delete={this.deletePatientHandler}
         />
       );
     });
 
-    const totalPaginationItems = this.state.totalPages / 10;
+    let totalPaginationItems = this.state.totalPages / 10;
+    totalPaginationItems =
+      this.state.totalPages % 10 !== 0
+        ? totalPaginationItems + 1
+        : totalPaginationItems;
     const paginationItems = [];
     for (let i = 1; i <= totalPaginationItems; i++) {
       paginationItems.push(
