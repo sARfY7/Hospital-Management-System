@@ -1,26 +1,34 @@
 import React, { Component } from "react";
 import classes from "./ViewPatients.css";
 import Patient from "./Patient/Patient";
+import axios from "axios";
 
 class ViewPatients extends Component {
   state = {
-    patients: [
-      {
-        SerialNo: 1,
-        PatientName: "John",
-        PatientMobileNo: "1234567890"
-      },
-      {
-        SerialNo: 2,
-        PatientName: "John",
-        PatientMobileNo: "1234567890"
-      },
-      {
-        SerialNo: 3,
-        PatientName: "John",
-        PatientMobileNo: "1234567890"
-      }
-    ]
+    patients: [],
+    totalPages: 0
+  };
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:3001/patients?_limit=10&_page=" + this.state.page)
+      .then(response => {
+        axios.get("http://localhost:3001/patients").then(res => {
+          this.setState({
+            patients: response.data,
+            totalPages: res.data.length
+          });
+        });
+      });
+  }
+
+  paginationHandler = page => {
+    axios
+      .get("http://localhost:3001/patients?_limit=10&_page=" + page)
+      .then(response => {
+        console.log("inside CDU");
+        this.setState({ patients: response.data });
+      });
   };
 
   render() {
@@ -29,13 +37,23 @@ class ViewPatients extends Component {
     patients.forEach(patient => {
       transformedPatients.push(
         <Patient
-          key={patient.SerialNo}
-          srno={patient.SerialNo}
-          pname={patient.PatientName}
-          pmob={patient.PatientMobileNo}
+          key={patient.id}
+          srno={patient.id}
+          pname={patient.name}
+          pmob={patient.mobile}
         />
       );
     });
+
+    const totalPaginationItems = this.state.totalPages / 10;
+    const paginationItems = [];
+    for (let i = 1; i <= totalPaginationItems; i++) {
+      paginationItems.push(
+        <li key={i} onClick={() => this.paginationHandler(i)}>
+          {i}
+        </li>
+      );
+    }
 
     return (
       <div className={classes.VPContainer}>
@@ -54,11 +72,7 @@ class ViewPatients extends Component {
           </table>
         </div>
         <div className={classes.Pagination}>
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
+          <ul>{paginationItems}</ul>
         </div>
       </div>
     );

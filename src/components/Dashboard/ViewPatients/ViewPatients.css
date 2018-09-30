@@ -6,7 +6,7 @@
 }
 
 .ViewPatients {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   width: 100%;
 }
 
@@ -54,4 +54,8 @@
 
 .Pagination li:hover {
   cursor: pointer;
+}
+
+.active {
+  color: aqua;
 }
