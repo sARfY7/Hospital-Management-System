@@ -11,3 +11,6 @@ This project is created with React. Follow the instructions below for running th
 - You can now browse the project.
 
 > Make sure you have a working internet connection for some of the components to work, like fontawesome and profile pictures.
+
+> Login Username: test
+        Password: test
