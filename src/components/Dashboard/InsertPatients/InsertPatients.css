@@ -1,6 +1,7 @@
 .InsertPatients {
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
 .InsertPatients form {

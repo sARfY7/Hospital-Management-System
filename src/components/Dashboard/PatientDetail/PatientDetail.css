@@ -1,0 +1,32 @@
+.PatientDetail {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.PatientDetail .Avatar img {
+  max-width: 100px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+.Details {
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Details div {
+  display: grid;
+  padding: 5px 10px;
+  grid-template-columns: 1fr 2fr;
+  justify-items: flex-start;
+  align-items: center;
+}
+
+.Details div h3,
+h5 {
+  margin: 0;
+  padding: 5px 10px;
+}

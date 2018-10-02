@@ -1,3 +1,14 @@
+.Patient button {
+  border: 1px solid #000000;
+  background: transparent;
+  border-radius: 15px;
+  margin: 0 5px;
+}
+
+.Patient button:hover {
+  cursor: pointer;
+}
+
 .Patient i {
-  margin: auto 5px;
+  margin: auto 2px;
 }
